@@ -14,9 +14,9 @@ RSpec.describe User do
 
     context 'when some apps are added' do
       let(:app) { App.new type: App::TYPE_PRIVATE }
+      before { user.register_app app }
 
       it 'returns the apps' do
-        user.register_app app
         expect(apps).to eq [app]
       end
     end
