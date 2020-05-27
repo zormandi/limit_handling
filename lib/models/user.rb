@@ -1,5 +1,6 @@
 class User
   attr_reader :id, :plan, :apps
+  alias_method :limits, :plan
 
   def initialize(id:, plan:)
     @id = id

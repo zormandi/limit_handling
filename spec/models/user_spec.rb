@@ -3,7 +3,9 @@ RSpec.describe User do
   let(:id) { 123 }
   let(:plan) { Plan.create type: Plan::TYPE_FREE }
 
-  it { is_expected.to have_attributes id: id, plan: plan }
+  it { is_expected.to have_attributes id: id,
+                                      plan: plan,
+                                      limits: plan }
 
   describe '#apps' do
     subject(:apps) { user.apps }
@@ -13,7 +15,7 @@ RSpec.describe User do
     end
 
     context 'when some apps are added' do
-      let(:app) { App.new type: App::TYPE_PRIVATE }
+      let(:app) { App.create type: App::TYPE_PRIVATE }
       before { user.register_app app }
 
       it 'returns the apps' do
@@ -23,7 +25,7 @@ RSpec.describe User do
   end
 
   describe '#register_app' do
-    let(:app) { App.new type: App::TYPE_PRIVATE }
+    let(:app) { App.create type: App::TYPE_PRIVATE }
 
     it 'adds an app to the user' do
       expect { user.register_app app }.to change { user.apps.count }.by 1
