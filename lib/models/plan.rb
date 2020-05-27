@@ -26,4 +26,11 @@ class Plan
     @builds_per_month = builds_per_month
     @team_members = team_members
   end
+
+  def ==(plan)
+    concurrent_builds == plan.concurrent_builds &&
+      build_time_minutes == plan.build_time_minutes &&
+      builds_per_month == plan.builds_per_month &&
+      team_members == plan.team_members
+  end
 end
