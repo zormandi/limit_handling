@@ -3,7 +3,7 @@ RSpec.describe Plan do
     subject(:create_plan) { Plan.create type: type }
 
     context 'for the Free plan' do
-      let(:type) { Plan::FREE }
+      let(:type) { Plan::TYPE_FREE }
 
       it { is_expected.to be_a Plan }
       it { is_expected.to have_attributes concurrent_builds: 1,
@@ -13,7 +13,7 @@ RSpec.describe Plan do
     end
 
     context 'for the Developer plan' do
-      let(:type) { Plan::DEVELOPER }
+      let(:type) { Plan::TYPE_DEVELOPER }
 
       it { is_expected.to be_a Plan }
       it { is_expected.to have_attributes concurrent_builds: 2,
@@ -23,7 +23,7 @@ RSpec.describe Plan do
     end
 
     context 'for the Organization plan' do
-      let(:type) { Plan::ORGANIZATION }
+      let(:type) { Plan::TYPE_ORGANIZATION }
 
       it { is_expected.to be_a Plan }
       it { is_expected.to have_attributes concurrent_builds: 4,

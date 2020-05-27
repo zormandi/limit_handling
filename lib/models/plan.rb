@@ -1,7 +1,7 @@
 class Plan
-  FREE = :free
-  DEVELOPER = :developer
-  ORGANIZATION = :organization
+  TYPE_FREE = :free
+  TYPE_DEVELOPER = :developer
+  TYPE_ORGANIZATION = :organization
 
   UNLIMITED = Float::INFINITY
 
@@ -9,11 +9,11 @@ class Plan
 
   def self.create(type:)
     case type
-    when FREE
+    when TYPE_FREE
       new concurrent_builds: 1, build_time_minutes: 10, builds_per_month: 200, team_members: 2
-    when DEVELOPER
+    when TYPE_DEVELOPER
       new concurrent_builds: 2, build_time_minutes: 45, builds_per_month: UNLIMITED, team_members: UNLIMITED
-    when ORGANIZATION
+    when TYPE_ORGANIZATION
       new concurrent_builds: 4, build_time_minutes: 90, builds_per_month: UNLIMITED, team_members: UNLIMITED
     else
       raise ArgumentError, 'Unrecognized plan type'
