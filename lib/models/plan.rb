@@ -16,7 +16,7 @@ class Plan
     when TYPE_ORGANIZATION
       new concurrent_builds: 4, build_time_minutes: 90, builds_per_month: UNLIMITED, team_members: UNLIMITED
     else
-      raise ArgumentError, 'Unrecognized plan type'
+      raise ArgumentError, "Unrecognized plan type '#{type}'"
     end
   end
 

@@ -36,7 +36,7 @@ RSpec.describe Plan do
       let(:type) { :unknown }
 
       it 'raises an error' do
-        expect { create_plan }.to raise_error ArgumentError, 'Unrecognized plan type'
+        expect { create_plan }.to raise_error ArgumentError, "Unrecognized plan type 'unknown'"
       end
     end
   end
