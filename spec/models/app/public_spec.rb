@@ -32,4 +32,14 @@ RSpec.describe App::Public do
       expect { app.limits = plan }.to change { app.limits }.to plan
     end
   end
+
+  describe '#use_owner_limits!' do
+    let(:user) { User.new id: 1, plan: Plan.organization }
+    before { app.owner = user }
+
+    it "allows the app to use the owner's limits instead of its own" do
+      app.use_owner_limits!
+      expect(app.limits).to eq user.limits
+    end
+  end
 end

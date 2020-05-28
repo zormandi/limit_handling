@@ -9,5 +9,14 @@ class App::Public < App
   def initialize(limits: DEFAULT_PUBLIC_APP_LIMITS)
     @type = App::TYPE_PUBLIC
     @limits = limits
+    @use_owner_limits = false
+  end
+
+  def limits
+    @use_owner_limits ? owner.limits : @limits
+  end
+
+  def use_owner_limits!
+    @use_owner_limits = true
   end
 end
