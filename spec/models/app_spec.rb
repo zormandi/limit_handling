@@ -33,6 +33,12 @@ RSpec.describe App do
     end
   end
 
+  describe '#type' do
+    it 'raises an error to enforce implementation in subclasses' do
+      expect { app.type }.to raise_error NotImplementedError
+    end
+  end
+
   describe '#limits' do
     it 'raises an error to enforce implementation in subclasses' do
       expect { app.limits }.to raise_error NotImplementedError

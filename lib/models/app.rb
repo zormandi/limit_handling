@@ -2,8 +2,11 @@ class App
   TYPE_PRIVATE = :private
   TYPE_PUBLIC = :public
 
-  attr_reader :type
   attr_accessor :owner
+
+  def type
+    raise NotImplementedError
+  end
 
   def limits
     raise NotImplementedError

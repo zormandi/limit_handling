@@ -7,9 +7,12 @@ class App::Public < App
   attr_accessor :limits
 
   def initialize(limits: DEFAULT_PUBLIC_APP_LIMITS)
-    @type = App::TYPE_PUBLIC
     @limits = limits
     @use_owner_limits = false
+  end
+
+  def type
+    App::TYPE_PUBLIC
   end
 
   def limits
