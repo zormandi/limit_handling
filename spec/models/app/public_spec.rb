@@ -33,4 +33,3 @@ RSpec.describe App::Public do
     end
   end
 end
-
