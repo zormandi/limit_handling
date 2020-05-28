@@ -16,7 +16,12 @@ class App::Public < App
   end
 
   def limits
-    @use_owner_limits ? owner.limits : @limits
+    if @use_owner_limits
+      raise App::NoOwnerError if owner.nil?
+      owner.limits
+    else
+      @limits
+    end
   end
 
   def use_owner_limits!

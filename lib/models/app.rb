@@ -1,4 +1,6 @@
 class App
+  class NoOwnerError < StandardError; end
+
   TYPE_PRIVATE = :private
   TYPE_PUBLIC = :public
 

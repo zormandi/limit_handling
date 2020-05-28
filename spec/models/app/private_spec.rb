@@ -18,8 +18,8 @@ RSpec.describe App::Private do
     end
 
     context 'when the app has no owner' do
-      it 'returns nil' do
-        expect(app.limits).to be nil
+      it 'raises an error' do
+        expect { app.limits }.to raise_error App::NoOwnerError
       end
     end
   end

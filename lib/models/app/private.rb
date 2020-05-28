@@ -4,7 +4,7 @@ class App::Private < App
   end
 
   def limits
-    return nil if owner.nil?
+    raise App::NoOwnerError if owner.nil?
     owner.limits
   end
 end
