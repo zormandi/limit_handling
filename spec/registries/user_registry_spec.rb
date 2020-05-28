@@ -19,8 +19,7 @@ RSpec.describe UserRegistry do
     before { user_registry.clear }
 
     it 'returns the number of users in the registry' do
-      expect(user_registry.count).to eq 0
-      expect { user_registry.create_user plan: plan }.to change { user_registry.count }.by 1
+      expect { user_registry.create_user plan: plan }.to change { user_registry.count }.from(0).to 1
     end
   end
 end
