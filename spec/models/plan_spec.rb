@@ -40,4 +40,22 @@ RSpec.describe Plan do
       end
     end
   end
+
+  describe '.free' do
+    it 'is a shorthand for creating a Free plan' do
+      expect(Plan.free).to eq Plan.create(type: Plan::TYPE_FREE)
+    end
+  end
+
+  describe '.developer' do
+    it 'is a shorthand for creating a Developer plan' do
+      expect(Plan.developer).to eq Plan.create(type: Plan::TYPE_DEVELOPER)
+    end
+  end
+
+  describe '.organization' do
+    it 'is a shorthand for creating an Organization plan' do
+      expect(Plan.organization).to eq Plan.create(type: Plan::TYPE_ORGANIZATION)
+    end
+  end
 end

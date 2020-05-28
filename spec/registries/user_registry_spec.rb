@@ -1,7 +1,7 @@
 RSpec.describe UserRegistry do
   subject(:user_registry) { described_class }
 
-  let(:plan) { Plan.create type: Plan::TYPE_DEVELOPER }
+  let(:plan) { Plan.developer }
 
   describe '.create' do
     subject(:create_user) { user_registry.create with_plan: plan }
