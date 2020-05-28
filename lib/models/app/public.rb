@@ -4,8 +4,6 @@ class App::Public < App
                                        builds_per_month: Plan::UNLIMITED,
                                        team_members: Plan::UNLIMITED
 
-  attr_accessor :limits
-
   def initialize(limits: DEFAULT_PUBLIC_APP_LIMITS)
     @limits = limits
     @use_owner_limits = false
@@ -22,6 +20,10 @@ class App::Public < App
     else
       @limits
     end
+  end
+
+  def limits=(limits)
+    @limits = limits
   end
 
   def use_owner_limits!
