@@ -8,11 +8,13 @@ RSpec.describe App::Private do
   end
 
   describe '#limits' do
-    let(:user) { User.new id: 1, plan: Plan.create(type: Plan::TYPE_FREE) }
+    context 'when the app has an owner' do
+      let(:user) { User.new id: 1, plan: Plan.create(type: Plan::TYPE_FREE) }
+      before { app.owner = user }
 
-    it "returns the owner's limits" do
-      app.owner = user
-      expect(app.limits).to eq user.limits
+      it "returns the owner's limits" do
+        expect(app.limits).to eq user.limits
+      end
     end
 
     context 'when the app has no owner' do
