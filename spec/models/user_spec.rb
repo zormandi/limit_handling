@@ -1,11 +1,8 @@
 RSpec.describe User do
-  subject(:user) { User.new id: id, plan: plan }
-  let(:id) { 123 }
+  subject(:user) { User.new plan: plan }
   let(:plan) { Plan.free }
 
-  it { is_expected.to have_attributes id: id,
-                                      plan: plan,
-                                      limits: plan }
+  it { is_expected.to have_attributes plan: plan, limits: plan }
 
   describe '#apps' do
     subject(:apps) { user.apps }

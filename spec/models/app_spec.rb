@@ -47,7 +47,7 @@ RSpec.describe App do
     end
 
     context 'when the owner is set' do
-      let(:user) { User.new id: 1, plan: Plan.free }
+      let(:user) { User.new plan: Plan.free }
       before { app.owner = user }
 
       it { is_expected.to be user }

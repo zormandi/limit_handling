@@ -3,7 +3,7 @@ RSpec.describe AppRegistry do
 
   describe '.create_app' do
     subject(:create_app) { app_registry.create_app owner: user, type: app_type }
-    let(:user) { User.new id: 1, plan: Plan.free }
+    let(:user) { User.new plan: Plan.free }
     let(:app_type) { App::TYPE_PUBLIC }
 
     it 'creates and returns an App of the specified type' do

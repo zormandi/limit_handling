@@ -34,7 +34,7 @@ RSpec.describe App::Public do
   end
 
   describe '#use_owner_limits!' do
-    let(:user) { User.new id: 1, plan: Plan.organization }
+    let(:user) { User.new plan: Plan.organization }
     before { app.owner = user }
 
     it "allows the app to use the owner's limits instead of its own" do

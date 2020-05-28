@@ -9,7 +9,7 @@ RSpec.describe App::Private do
 
   describe '#limits' do
     context 'when the app has an owner' do
-      let(:user) { User.new id: 1, plan: Plan.free }
+      let(:user) { User.new plan: Plan.free }
       before { app.owner = user }
 
       it "returns the owner's limits" do

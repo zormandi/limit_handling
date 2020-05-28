@@ -1,9 +1,8 @@
 class User
-  attr_reader :id, :plan, :apps
+  attr_reader :plan, :apps
   alias_method :limits, :plan
 
-  def initialize(id:, plan:)
-    @id = id
+  def initialize(plan:)
     @plan = plan
     @apps = []
   end
