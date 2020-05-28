@@ -8,8 +8,6 @@ RSpec.describe App::Public do
   end
 
   describe '#limits' do
-    let(:user) { User.new id: 1, plan: Plan.free }
-
     it "returns the app's limits which are the standard public app limits by default" do
       expect(app.limits).to have_attributes concurrent_builds: 2,
                                             build_time_minutes: 45,
@@ -26,4 +24,13 @@ RSpec.describe App::Public do
       end
     end
   end
+
+  describe '#limits=' do
+    let(:plan) { Plan.free }
+
+    it "sets the app's limits to the specified plan" do
+      expect { app.limits = plan }.to change { app.limits }.to plan
+    end
+  end
 end
+
